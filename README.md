@@ -10,8 +10,8 @@
 ```
 g++ -std=c++11  main.cpp ./src/sio_client.cpp ./src/internal/sio_client_impl.cpp ./src/internal/sio_packet.cpp ./src/sio_socket.cpp -o main -I ./lib/websocketpp -I ./lib/rapidjson/include -I ./src/libsioclient_tls.a -lssl -lcrypto -I /usr/local/opt/openssl@1.1/include -L /usr/local/opt/openssl@1.1/lib
 ```
-Note: Requires openssl
-To run client
+* Note: Requires openssl
+- To run client
 ```
 ./main
 ```

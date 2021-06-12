@@ -111,8 +111,7 @@ MAIN_FUNC{
     h.set_close_listener(std::bind(&connection_listener::on_close, &l,std::placeholders::_1));
     h.set_fail_listener(std::bind(&connection_listener::on_fail, &l));
     std::map<std::string, std::string> query;
-//    query["token"] = "493c2afd-8295-4895-8e35-e6e1041a742b"; //Token passed in from Independa app. Hardcoded for now.
-    query["token"] = "54a23941-a9a0-4c24-a605-840d73cb7592"; //Token passed in from Independa app. Hardcoded for now.
+    query["token"] = "275c1627-224c-4b22-930e-e913176a22d7"; //Token passed in from Independa app. Hardcoded for now.
     h.connect("https://dev-socket.independa.com", query); //Socket.io test server
     _lock.lock();
     if (!connect_finish){

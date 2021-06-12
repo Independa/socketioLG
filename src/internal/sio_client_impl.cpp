@@ -19,11 +19,9 @@
 #define LOG(x)
 #endif
 
-#if SIO_TLS
 // If using Asio's SSL support, you will also need to add this #include.
 // Source: http://think-async.com/Asio/asio-1.10.6/doc/asio/using.html
-// #include <asio/ssl/impl/src.hpp>
-#endif
+//#include <asio/ssl/impl/src.hpp>
 
 using std::chrono::milliseconds;
 using namespace std;
@@ -56,9 +54,7 @@ namespace sio
         m_client.set_close_handler(std::bind(&client_impl::on_close,this,_1));
         m_client.set_fail_handler(std::bind(&client_impl::on_fail,this,_1));
         m_client.set_message_handler(std::bind(&client_impl::on_message,this,_1,_2));
-#if SIO_TLS
         m_client.set_tls_init_handler(std::bind(&client_impl::on_tls_init,this,_1));
-#endif
         m_packet_mgr.set_decode_callback(std::bind(&client_impl::on_decode,this,_1));
 
         m_packet_mgr.set_encode_callback(std::bind(&client_impl::on_encode,this,_1,_2));
@@ -226,11 +222,7 @@ namespace sio
         do{
             websocketpp::uri uo(uri);
             ostringstream ss;
-#if SIO_TLS
             ss<<"wss://";
-#else
-            ss<<"ws://";
-#endif
             const std::string host(uo.get_host());
             // As per RFC2732, literal IPv6 address should be enclosed in "[" and "]".
             if(host.find(':')!=std::string::npos){
@@ -595,22 +587,20 @@ failed:
         m_sid.clear();
         m_packet_mgr.reset();
     }
-    
-#if SIO_TLS
+
     client_impl::context_ptr client_impl::on_tls_init(connection_hdl conn)
     {
         context_ptr ctx = context_ptr(new  asio::ssl::context(asio::ssl::context::tlsv12));
         asio::error_code ec;
         ctx->set_options(asio::ssl::context::default_workarounds |
-                             asio::ssl::context::single_dh_use,ec);
+                         asio::ssl::context::single_dh_use,ec);
         if(ec)
         {
             cerr<<"Init tls failed,reason:"<< ec.message()<<endl;
         }
-        
+
         return ctx;
     }
-#endif
 
     std::string client_impl::encode_query_string(const std::string &query){
         ostringstream ss;

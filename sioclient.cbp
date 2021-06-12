@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="sioclient"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/Tailwind/sites/new/socket.io-client-cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/Tailwind/sites/new/socket.io-client-cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/Tailwind/sites/new/socket.io-client-cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/Tailwind/sites/new/socket.io-client-cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sioclient">
+				<Option output="/Users/Tailwind/sites/new/socket.io-client-cpp/libsioclient.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Tailwind/sites/new/socket.io-client-cpp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DBOOST_DATE_TIME_NO_LIB"/>
+					<Add option="-DBOOST_REGEX_NO_LIB"/>
+					<Add option="-DASIO_STANDALONE"/>
+					<Add option="-D_WEBSOCKETPP_CPP11_STL_"/>
+					<Add option="-D_WEBSOCKETPP_CPP11_FUNCTIONAL_"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/src"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/lib/websocketpp"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/lib/rapidjson/include"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/lib/asio/asio/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 sioclient"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sioclient/fast">
+				<Option output="/Users/Tailwind/sites/new/socket.io-client-cpp/libsioclient.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Tailwind/sites/new/socket.io-client-cpp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DBOOST_DATE_TIME_NO_LIB"/>
+					<Add option="-DBOOST_REGEX_NO_LIB"/>
+					<Add option="-DASIO_STANDALONE"/>
+					<Add option="-D_WEBSOCKETPP_CPP11_STL_"/>
+					<Add option="-D_WEBSOCKETPP_CPP11_FUNCTIONAL_"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/src"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/lib/websocketpp"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/lib/rapidjson/include"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/lib/asio/asio/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 sioclient/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/Tailwind/sites/new/socket.io-client-cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/Tailwind/sites/new/socket.io-client-cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/Tailwind/sites/new/socket.io-client-cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sioclient_tls">
+				<Option output="/Users/Tailwind/sites/new/socket.io-client-cpp/libsioclient_tls.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Tailwind/sites/new/socket.io-client-cpp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DSIO_TLS"/>
+					<Add option="-DBOOST_DATE_TIME_NO_LIB"/>
+					<Add option="-DBOOST_REGEX_NO_LIB"/>
+					<Add option="-DASIO_STANDALONE"/>
+					<Add option="-D_WEBSOCKETPP_CPP11_STL_"/>
+					<Add option="-D_WEBSOCKETPP_CPP11_FUNCTIONAL_"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/src"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/lib/websocketpp"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/lib/rapidjson/include"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/lib/asio/asio/include"/>
+					<Add directory="/opt/local/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 sioclient_tls"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sioclient_tls/fast">
+				<Option output="/Users/Tailwind/sites/new/socket.io-client-cpp/libsioclient_tls.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Tailwind/sites/new/socket.io-client-cpp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DSIO_TLS"/>
+					<Add option="-DBOOST_DATE_TIME_NO_LIB"/>
+					<Add option="-DBOOST_REGEX_NO_LIB"/>
+					<Add option="-DASIO_STANDALONE"/>
+					<Add option="-D_WEBSOCKETPP_CPP11_STL_"/>
+					<Add option="-D_WEBSOCKETPP_CPP11_FUNCTIONAL_"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/src"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/lib/websocketpp"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/lib/rapidjson/include"/>
+					<Add directory="/Users/Tailwind/sites/new/socket.io-client-cpp/lib/asio/asio/include"/>
+					<Add directory="/opt/local/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 sioclient_tls/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/Tailwind/sites/new/socket.io-client-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/Tailwind/sites/new/socket.io-client-cpp/main.cpp">
+			<Option target="sioclient"/>
+		</Unit>
+		<Unit filename="/Users/Tailwind/sites/new/socket.io-client-cpp/src/internal/sio_client_impl.cpp">
+			<Option target="sioclient"/>
+			<Option target="sioclient_tls"/>
+		</Unit>
+		<Unit filename="/Users/Tailwind/sites/new/socket.io-client-cpp/src/internal/sio_client_impl.h">
+			<Option target="sioclient"/>
+			<Option target="sioclient_tls"/>
+		</Unit>
+		<Unit filename="/Users/Tailwind/sites/new/socket.io-client-cpp/src/internal/sio_packet.cpp">
+			<Option target="sioclient"/>
+			<Option target="sioclient_tls"/>
+		</Unit>
+		<Unit filename="/Users/Tailwind/sites/new/socket.io-client-cpp/src/internal/sio_packet.h">
+			<Option target="sioclient"/>
+			<Option target="sioclient_tls"/>
+		</Unit>
+		<Unit filename="/Users/Tailwind/sites/new/socket.io-client-cpp/src/sio_client.cpp">
+			<Option target="sioclient"/>
+			<Option target="sioclient_tls"/>
+		</Unit>
+		<Unit filename="/Users/Tailwind/sites/new/socket.io-client-cpp/src/sio_client.h">
+			<Option target="sioclient"/>
+			<Option target="sioclient_tls"/>
+		</Unit>
+		<Unit filename="/Users/Tailwind/sites/new/socket.io-client-cpp/src/sio_socket.cpp">
+			<Option target="sioclient"/>
+			<Option target="sioclient_tls"/>
+		</Unit>
+		<Unit filename="/Users/Tailwind/sites/new/socket.io-client-cpp/src/sio_socket.h">
+			<Option target="sioclient"/>
+			<Option target="sioclient_tls"/>
+		</Unit>
+		<Unit filename="/Users/Tailwind/sites/new/socket.io-client-cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

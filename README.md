@@ -1,7 +1,10 @@
 # Independa Instructions
 * Used Mac OSX
 
-- Use git clone --recurse-submodules https://github.com/Independa/socketioLG.git to clone your local repo.
+- Use below to clone your local repo.
+```
+git clone --recurse-submodules https://github.com/Independa/socketioLG.git
+```
 - Run 
 ```cmake -DTARGET=sioclient_tls ./```
 - Run 

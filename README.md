@@ -18,8 +18,6 @@ g++ -std=c++11  main.cpp ./src/sio_client.cpp ./src/internal/sio_client_impl.cpp
 ./main
 ```
 
-** [Full overview of API can be seen here](./API.md) **
-
 ## License
 Based on https://github.com/socketio/socket.io-client-cpp
 MIT

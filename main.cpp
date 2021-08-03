@@ -126,7 +126,6 @@ void bind_events(){
                     res = curl_easy_perform(curl);
                     curl_easy_cleanup(curl);
                     fclose(fp);
-                    std::cout << res << std::endl;
                     // Download Success. Profile photo file "profile.png" saved in root with .main program.
                     // Include "profile.png" path for downloaded local file to LG System Notification.
                 }

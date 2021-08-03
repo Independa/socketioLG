@@ -6,6 +6,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <stdio.h>
+#include <curl/curl.h>
 #include "rapidjson/document.h"
 #include <string>
 #include <rapidjson/stringbuffer.h>
@@ -40,7 +41,13 @@ public:
     }
 };
 socket::ptr current_socket;
-// This function is the Socket.io notification listener
+
+size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream)
+{
+    size_t written;
+    written = fwrite(ptr, size, nmemb, stream);
+    return written;
+}
 void bind_events(){
     current_socket->on("message", sio::socket::event_listener_aux([&](string const& name, message::ptr const& data, bool isAck, message::list &ack_resp){
         _lock.lock();
@@ -77,8 +84,8 @@ void bind_events(){
 
             Document n;
             n.Parse<0>(payloadString.c_str());
-            Value& nameValue = n["caller_full_name"];
 
+            Value& nameValue = n["caller_full_name"];
             StringBuffer bufferName;
             Writer<StringBuffer> writerName(bufferName);
             nameValue.Accept(writerName);
@@ -90,7 +97,41 @@ void bind_events(){
             }
             std::cout << nameString << std::endl;
 
-            //Start LG System Notification for video call notification modal.
+            /* Parse profile photo URL and download profile photo to root folder */
+            Value& profilePhotoUrlValue = n["cloud_profile_picture"];
+            StringBuffer bufferProfilePhotoUrl;
+            Writer<StringBuffer> writerProfilePhotoUrl(bufferProfilePhotoUrl);
+            profilePhotoUrlValue.Accept(writerProfilePhotoUrl);
+            string profilePhotoUrlString = bufferProfilePhotoUrl.GetString(); //Profile photo URL
+            if ( profilePhotoUrlString.front() == '"' ) {
+                profilePhotoUrlString.erase( 0, 1 );
+                profilePhotoUrlString.erase( profilePhotoUrlString.size() - 1 );
+            }
+            if (!profilePhotoUrlString.empty()){
+                std::cout << profilePhotoUrlString << std::endl;
+
+                CURL *curl;
+                FILE *fp;
+                CURLcode res;
+
+                char outfilename[FILENAME_MAX] = "profile.png"; // Filename of profile photo to save
+                curl = curl_easy_init();
+                if (curl)
+                {
+                    fp = fopen(outfilename,"wb");
+                    curl_easy_setopt(curl, CURLOPT_URL, profilePhotoUrlString.c_str());
+                    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
+                    curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
+                    curl_easy_setopt (curl, CURLOPT_VERBOSE, 1L);
+                    res = curl_easy_perform(curl);
+                    curl_easy_cleanup(curl);
+                    fclose(fp);
+                    std::cout << res << std::endl;
+                    // Download Success. Profile photo file "profile.png" saved in root with .main program.
+                    // Include "profile.png" path for downloaded local file to LG System Notification.
+                }
+            }
+            // Start LG System Notification for video call notification modal.
             //Pass "jsonData" JSON string to the Independa app
         } else if (actionString == "end"){ // End Video call notification
             //If Independa app is inactive and LG notification is active.

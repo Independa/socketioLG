@@ -114,7 +114,18 @@ void bind_events(){
                 FILE *fp;
                 CURLcode res;
 
-                char outfilename[FILENAME_MAX] = "profile.png"; // Filename of profile photo to save
+                string profilePhotoId;
+                size_t sep = profilePhotoUrlString.find_last_of("\\/");
+                if (sep != string::npos) {
+                    profilePhotoId  = profilePhotoUrlString.substr(sep + 1, profilePhotoUrlString.size() - sep - 1);
+                } else {
+                    profilePhotoId = "profile";
+                }
+
+                profilePhotoId = profilePhotoId+".png";  // Filename of profile photo to save
+                char outfilename[FILENAME_MAX];
+                strcpy(outfilename, profilePhotoId.c_str());
+
                 curl = curl_easy_init();
                 if (curl)
                 {

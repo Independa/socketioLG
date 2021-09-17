@@ -138,7 +138,7 @@ void bind_events(){
                     curl_easy_cleanup(curl);
                     fclose(fp);
                     // Download Success. Profile photo file "profile.png" saved in root with .main program.
-                    // Include "profile.png" path for downloaded local file to LG System Notification.
+                    // Include profilePhotoId path for downloaded local file to LG System Notification.
                 }
             }
             // Start LG System Notification for video call notification modal.
@@ -162,7 +162,14 @@ MAIN_FUNC{
     h.set_close_listener(std::bind(&connection_listener::on_close, &l,std::placeholders::_1));
     h.set_fail_listener(std::bind(&connection_listener::on_fail, &l));
     std::map<std::string, std::string> query;
-    query["token"] = "275c1627-224c-4b22-930e-e913176a22d7"; //Token passed in from Independa app. Hardcoded for now.
+    //    query["token"] = "275c1627-224c-4b22-930e-e913176a22d7"; // Hardcoded Token
+
+    // Retrieve WebOS Device ID with Luna Service API(deviceid/getIDs method, LGUDID). 
+    // Use Device ID as token for subscribing to notifications.
+    string deviceId = "tempWebOSDeviceID"; // Replace with Device ID retrieved from Luna Service API
+    //    deviceId = "4D4ECFF4-2FD8-3658-594E-5D66903FD81D"; // Sample WebOS Device ID
+    query["token"] = deviceId; // Device ID from Luna Service API
+
     h.connect("https://dev-socket.independa.com", query); //Socket.io test server
     _lock.lock();
     if (!connect_finish){

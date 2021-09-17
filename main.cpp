@@ -97,6 +97,18 @@ void bind_events(){
             }
             std::cout << nameString << std::endl;
 
+            Value& videoCallSlugValue = n["video_call_slug"];
+            StringBuffer bufferVideoCallSlug;
+            Writer<StringBuffer> writerVideoCallSlug(bufferVideoCallSlug);
+            videoCallSlugValue.Accept(writerVideoCallSlug);
+
+            string videoCallSlugString = bufferVideoCallSlug.GetString(); //Video Call Slug for Video Call Notification deep-link
+            if ( videoCallSlugString.front() == '"' ) {
+                videoCallSlugString.erase( 0, 1 );
+                videoCallSlugString.erase( videoCallSlugString.size() - 1 );
+            }
+            std::cout << videoCallSlugString << std::endl;
+
             /* Parse profile photo URL and download profile photo to root folder */
             Value& profilePhotoUrlValue = n["cloud_profile_picture"];
             StringBuffer bufferProfilePhotoUrl;

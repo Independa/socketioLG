@@ -48,6 +48,26 @@ size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream)
     written = fwrite(ptr, size, nmemb, stream);
     return written;
 }
+
+// Use function to decline video call from incoming notification. Requires video_call_slug value from notification.
+void decline_video_call(string video_call_slug){
+    CURL *curl;
+    CURLcode res;
+    curl = curl_easy_init();
+    if(curl) {
+        string json_post_string = "{\"videochat_slug\" : \""+video_call_slug+"\"}";
+        curl_easy_setopt(curl, CURLOPT_URL, "https://dev-our.independa.com/api/2/socialContent/decline_video_call");
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_post_string.c_str());
+        res = curl_easy_perform(curl);
+        if(res != CURLE_OK) {
+            std::cout << "Error declining video call" << std::endl;
+            curl_easy_strerror(res);
+        }
+        curl_easy_cleanup(curl);
+    }
+    return;
+}
+
 void bind_events(){
     current_socket->on("message", sio::socket::event_listener_aux([&](string const& name, message::ptr const& data, bool isAck, message::list &ack_resp){
         _lock.lock();
@@ -154,7 +174,8 @@ void bind_events(){
                 }
             }
             // Start LG System Notification for video call notification modal.
-            //Pass "jsonData" JSON string to the Independa app
+            // Pass "jsonData" JSON string to the Independa app
+            // decline_video_call(videoCallSlugString);      // Use this function to decline call from user response to notification
         } else if (actionString == "end"){ // End Video call notification
             //If Independa app is inactive and LG notification is active.
             // Stop any video call notification in progress. Caller has already ended the call.

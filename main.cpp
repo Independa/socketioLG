@@ -140,8 +140,14 @@ void bind_events(){
                 profilePhotoUrlString.erase( profilePhotoUrlString.size() - 1 );
             }
             if (!profilePhotoUrlString.empty()){
-                std::cout << profilePhotoUrlString << std::endl;
+                string h_w_100 = "h_100,w_100,";
+                string url_param = "/image/upload/";
+                size_t pos = profilePhotoUrlString.find(url_param);
 
+                if (pos != std::string::npos)
+                    profilePhotoUrlString.insert(pos + url_param.size(), h_w_100);
+
+                std::cout << profilePhotoUrlString << std::endl;
                 CURL *curl;
                 FILE *fp;
                 CURLcode res;

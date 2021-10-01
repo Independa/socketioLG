@@ -160,7 +160,7 @@ void bind_events(){
                     profilePhotoId = "profile";
                 }
 
-                profilePhotoId = profilePhotoId+".png";  // Filename of profile photo to save
+                profilePhotoId = profilePhotoId+".jpg";  // Filename of profile photo to save
                 char outfilename[FILENAME_MAX];
                 strcpy(outfilename, profilePhotoId.c_str());
 

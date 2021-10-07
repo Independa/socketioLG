@@ -56,7 +56,7 @@ void decline_video_call(string video_call_slug){
     curl = curl_easy_init();
     if(curl) {
         string json_post_string = "{\"videochat_slug\" : \""+video_call_slug+"\"}";
-        curl_easy_setopt(curl, CURLOPT_URL, "https://dev-our.independa.com/api/2/socialContent/decline_video_call");
+        curl_easy_setopt(curl, CURLOPT_URL, "https://our.independa.com/api/2/socialContent/decline_video_call");
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_post_string.c_str());
         res = curl_easy_perform(curl);
         if(res != CURLE_OK) {
@@ -209,7 +209,7 @@ MAIN_FUNC{
     //    deviceId = "4D4ECFF4-2FD8-3658-594E-5D66903FD81D"; // Sample WebOS Device ID
     query["token"] = deviceId; // Device ID from Luna Service API
 
-    h.connect("https://dev-socket.independa.com", query); //Socket.io test server
+    h.connect("https://socket.independa.com", query); //Socket.io test server
     _lock.lock();
     if (!connect_finish){
         _cond.wait(_lock);

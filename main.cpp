@@ -57,6 +57,7 @@ void decline_video_call(string video_call_slug){
     if(curl) {
         string json_post_string = "{\"videochat_slug\" : \""+video_call_slug+"\"}";
         curl_easy_setopt(curl, CURLOPT_URL, "https://our.independa.com/api/2/socialContent/decline_video_call");
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_post_string.c_str());
         res = curl_easy_perform(curl);
         if(res != CURLE_OK) {
@@ -169,6 +170,7 @@ void bind_events(){
                 {
                     fp = fopen(outfilename,"wb");
                     curl_easy_setopt(curl, CURLOPT_URL, profilePhotoUrlString.c_str());
+                    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);
                     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
                     curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
                     curl_easy_setopt (curl, CURLOPT_VERBOSE, 1L);
@@ -209,7 +211,7 @@ MAIN_FUNC{
     //    deviceId = "4D4ECFF4-2FD8-3658-594E-5D66903FD81D"; // Sample WebOS Device ID
     query["token"] = deviceId; // Device ID from Luna Service API
 
-    h.connect("https://socket.independa.com", query); //Socket.io test server
+    h.connect("https://socket.independa.com", query); //Socket.io Production server
     _lock.lock();
     if (!connect_finish){
         _cond.wait(_lock);
